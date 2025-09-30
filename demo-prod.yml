@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://prod-db:5432/demo
+    url: jdbc:postgresql://db:5432/demo
     username: demo
-    password: ${DB_PASSWORD}  # required at runtime
+    password: ${DB_PASSWORD}
 logging:
   level:
     com.example.demo: WARN
