@@ -1,0 +1,30 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    # When the app runs in Docker Compose, it can reach Postgres via the service name "db".
+    url: jdbc:postgresql://db:5432/demo
+    username: demo
+    # Never commit real secrets; use env var with a safe local default.
+    password: ${DB_PASSWORD:demo}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+management:
+  health:
+    probes:
+      enabled: true
+
+logging:
+  level:
+    com.example.demo: INFO
+
+feature:
+  exampleFlag: true
