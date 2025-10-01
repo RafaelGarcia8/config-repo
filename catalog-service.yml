@@ -50,3 +50,13 @@ logging:
     org.springframework.web: INFO
     org.hibernate.SQL: INFO
     org.flywaydb: INFO
+
+# --- Actuator web exposure (so /actuator/env works) ---
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env
+  endpoint:
+    env:
+      show-values: ALWAYS   # consider WHEN_AUTHORIZED in real environments
