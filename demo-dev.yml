@@ -1,5 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/demo?sslmode=disable
+    url: jdbc:postgresql://db:5432/demo
     username: demo
     password: ${DB_PASSWORD:demo}
+
+logging:
+  level:
+    com.example.demo: DEBUG
