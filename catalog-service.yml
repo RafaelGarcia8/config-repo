@@ -2,6 +2,8 @@ server:
   port: 8091
 
 spring:
+  application:
+    name: catalog-service
   datasource:
     url: jdbc:postgresql://localhost:5432/demo
     username: demo
@@ -9,19 +11,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-    open-in-view: false
     properties:
       hibernate:
-        jdbc:
-          time_zone: UTC
-        default_schema: catalog
+        format_sql: true
   flyway:
     enabled: true
-    create-schemas: true
-    schemas: catalog
     locations: classpath:db/migration
 
-logging:
-  level:
-    org.hibernate.SQL: INFO
-    org.hibernate.orm.jdbc.bind: WARN
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,refresh
